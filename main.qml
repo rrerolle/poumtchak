@@ -29,6 +29,25 @@ Rectangle {
                 label: "crash"
             }
         }
+        Row {
+            spacing: 10
+            Pad {
+                id: pad2x1
+                label: "kick"
+            }
+            Pad {
+                id: pad2x2
+                label: "hihat"
+            }
+            Pad {
+                id: pad2x3
+                label: "snare"
+            }
+            Pad {
+                id: pad2x4
+                label: "crash"
+            }
+        }
     }
     ExitButton {
         id: exit_button
@@ -39,12 +58,12 @@ Rectangle {
     Slider {
         id: volume_slider
         transform: Rotation { 
-            origin.x: 25
-            origin.y: 25
+            origin.x: 0
+            origin.y: 0
             angle: 0
         } 
-        anchors.bottom: parent.bottom
         anchors.right: parent.right
+        anchors.verticalCenter: parent.verticalCenter
         anchors.rightMargin: 10
         anchors.bottomMargin: 10
     } 
