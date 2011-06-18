@@ -1,4 +1,5 @@
 import Qt 4.7
+//import Qt.labs.gestures 1.0
 
 Rectangle {
     id: pad
@@ -12,7 +13,8 @@ Rectangle {
     radius: 10
     smooth: true
     border { width: 2; color: borderColor }
-    width: 80; height: 80
+    width: (pad_grid.width / 6) - 10
+    height: pad.width
 
     Text {
         id: buttonLabel
@@ -32,6 +34,11 @@ Rectangle {
         onExited:  parent.border.color = borderColor
         onClicked: drummer.play(label)
     }
+//    GestureArea { 
+//        id: buttonTapArea
+//        anchors.fill: parent
+//        onTap: drummer.play(label)
+//    }
 
     color: buttonMouseArea.pressed ? Qt.darker(buttonColor, 1.5) : buttonColor
     Behavior on color { ColorAnimation{ duration: 55 } }
