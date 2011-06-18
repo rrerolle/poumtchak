@@ -24,6 +24,9 @@ class Drummer(QtCore.QObject):
         self.medias[name].setCurrentSource(self.samples[name])
         self.medias[name].play()
 
+    @QtCore.Slot()
+    def exit(self):
+        QtGui.QApplication.quit()
 
 if __name__ == '__main__':
     import sys
@@ -33,13 +36,17 @@ if __name__ == '__main__':
 
     view = QtDeclarative.QDeclarativeView()
 
+
     drummer = Drummer()
 
     context = view.rootContext()
     context.setContextProperty("drummer", drummer)
+    context.setContextProperty("screenWidth", 400);
+    context.setContextProperty("screenHeight", 100);
 
     view.setSource(QtCore.QUrl('main.qml'))
-    view.show()
+    view.setResizeMode(QtDeclarative.QDeclarativeView.SizeRootObjectToView)
+    view.showFullScreen()
 
     sys.exit(app.exec_())
 

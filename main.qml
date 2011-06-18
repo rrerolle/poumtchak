@@ -2,7 +2,9 @@ import Qt 4.7
 
 Rectangle {
     id: pad_grid
-    width: 370; height:100
+    width: screenWidth
+    height: screenHeight
+    anchors.centerIn: parent
     color:"grey"
 
     Column {
@@ -28,4 +30,23 @@ Rectangle {
             }
         }
     }
+    ExitButton {
+        id: exit_button
+        label: "Quit"
+        anchors.bottom: parent.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+    }
+    Slider {
+        id: volume_slider
+        transform: Rotation { 
+            origin.x: 25
+            origin.y: 25
+            angle: 0
+        } 
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
+        anchors.rightMargin: 10
+        anchors.bottomMargin: 10
+    } 
+
 }
