@@ -12,8 +12,8 @@ Rectangle {
     radius: 10
     smooth: true
     border { width: 2; color: borderColor }
-    width: 25
-    height: 25
+    width: 40
+    height: 40
 
     Text {
         id: buttonLabel

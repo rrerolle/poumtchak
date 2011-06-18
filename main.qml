@@ -2,9 +2,11 @@ import Qt 4.7
 
 Rectangle {
     id: pad_grid
-    width: 400; height:100
-    anchors.fill: parent;
+    width: screenWidth
+    height: screenHeight
+    anchors.centerIn: parent
     color:"grey"
+    state:"LandscapeInverted"
 
     Column {
         spacing: 10
@@ -41,5 +43,72 @@ Rectangle {
             }
         }
     }
+
+    states:  [
+        State {
+        name: "Landscape"
+        PropertyChanges {
+            target: pad_grid
+            rotation: 0
+            width: screenWidth
+            height: screenHeight
+            x: 0
+            y: 0
+          }
+        },
+        State {
+          name: "LandscapeInverted"
+          PropertyChanges {
+            target: pad_grid
+            rotation: 180
+            width: screenWidth
+            height: screenHeight
+            x: 0
+            y: 0
+          }
+        },
+        State {
+          name: "Portrait"
+          PropertyChanges {
+            target: pad_grid
+            rotation: 270
+            width: screenHeight
+            height: screenWidth
+            x: (screenWidth - screenHeight) / 2
+            y: -(screenWidth - screenHeight) / 2
+          }
+        },
+        State {
+          name: "PortraitInverted"
+          PropertyChanges {
+            target: pad_grid
+            rotation: 90
+            width: screenHeight
+            height: screenWidth
+            x: (screenWidth - screenHeight) / 2
+            y: -(screenWidth - screenHeight) / 2
+          }
+        }
+      ]
+     
+      transitions: [
+        Transition {
+          from: "*"
+          to: "*"
+ 
+          ParallelAnimation {
+            RotationAnimation {
+              properties: "rotation"
+              duration: 250
+              direction: RotationAnimation.Shortest
+            }
+            PropertyAnimation {
+              target: pad_grid
+              properties: "x,y,width,height"
+              duration: 250
+            }
+          }
+        }
+      ] 
 
 }

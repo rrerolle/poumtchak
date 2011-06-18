@@ -1,7 +1,7 @@
  import QtQuick 1.0
 
  Item {
-     id: slider; width: 400; height: 16
+     id: slider; width: 400; height: 30
 
      // value is read/write.
      property real value: 1
