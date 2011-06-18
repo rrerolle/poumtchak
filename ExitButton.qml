@@ -1,19 +1,19 @@
 import Qt 4.7
 
 Rectangle {
-    id: pad
+    id: exitbutton
 
     property string label
     property color onHoverColor: "lightsteelblue"
     property color borderColor: "transparent"
     property color buttonColor: "lightblue"
-    property real labelSize: 14
+    property real labelSize: 10
 
     radius: 10
     smooth: true
     border { width: 2; color: borderColor }
-    width: (pad_grid.width / 4) - 10
-    height: pad.width
+    width: 25
+    height: 25
 
     Text {
         id: buttonLabel
@@ -31,7 +31,7 @@ Rectangle {
         hoverEnabled: true
         onEntered: parent.border.color = onHoverColor
         onExited:  parent.border.color = borderColor
-        onClicked: drummer.play(label)
+        onClicked: drummer.exit()
     }
 
     color: buttonMouseArea.pressed ? Qt.darker(buttonColor, 1.5) : buttonColor
