@@ -2,8 +2,10 @@ import Qt 4.7
 
 Rectangle {
     id: pad_grid
-    width: 370; height:100
-    color:"grey"
+    width: screenWidth
+    height: screenHeight
+    anchors.centerIn: parent
+    color:"blue"
 
     Column {
         spacing: 10
@@ -25,6 +27,12 @@ Rectangle {
             Pad {
                 id: pad1x4
                 label: "crash"
+            }
+        }
+        Row {
+            ExitButton {
+                id: exitbtn
+                label: "Exit"
             }
         }
     }

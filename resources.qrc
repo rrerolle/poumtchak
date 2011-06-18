@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Pad.qml</file>
+        <file>ExitButton.qml</file>
+    </qresource>
+</RCC>
