@@ -12,19 +12,15 @@ Rectangle {
             spacing: 10
             Pad {
                 id: pad1x1
-                label: "kick"
+                label: "0"
             }
             Pad {
                 id: pad1x2
-                label: "hihat"
+                label: "1"
             }
             Pad {
                 id: pad1x3
-                label: "snare"
-            }
-            Pad {
-                id: pad1x4
-                label: "crash"
+                label: "2"
             }
         }
     }

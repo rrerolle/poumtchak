@@ -30,7 +30,7 @@ Rectangle {
         hoverEnabled: true
         onEntered: parent.border.color = onHoverColor
         onExited:  parent.border.color = borderColor
-        onClicked: drummer.play(label)
+        onClicked: tchikboum.playLoop(label)
     }
 
     color: buttonMouseArea.pressed ? Qt.darker(buttonColor, 1.5) : buttonColor

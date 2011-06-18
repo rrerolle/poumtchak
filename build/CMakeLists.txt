@@ -11,11 +11,20 @@ SET ( QT_USE_QTDECLARATIVE ON )
 SET ( QT_USE_PHONON ON )
 INCLUDE ( ${QT_USE_FILE} )
 
-MESSAGE ( "Libraries... ${QT_LIBRARIES}" )
+FIND_PACKAGE ( SDL 1.2 )
+FIND_PACKAGE ( SDL_mixer 1.2 )
+
+INCLUDE_DIRECTORIES( ${SDL_INCLUDE_DIR} ${SDLMIXER_INCLUDE_DIR} )
 
 ### ------------- MOC --------------
-QT4_WRAP_CPP ( MOC_SRCS ../Drummer.hpp )
+QT4_WRAP_CPP ( MOC_SRCS ../Drummer.hpp ../ITchikiBoum.hpp )
 
-ADD_EXECUTABLE ( PoumTchak ${MOC_SRCS} ../main.cpp ../Drummer.cpp )
+ADD_EXECUTABLE ( PoumTchak ${MOC_SRCS} ../main.cpp ../Drummer.cpp ../TchikiBoum.cpp ../test.cpp )
 
-TARGET_LINK_LIBRARIES ( PoumTchak ${QT_LIBRARIES} "C:/Qt/2010.05/qt/lib/libQtDeclaratived4.a" )
+TARGET_LINK_LIBRARIES ( 
+	PoumTchak
+	${QT_LIBRARIES}
+	"C:/Qt/2010.05/qt/lib/libQtDeclaratived4.a"
+	"C:/Qt/2010.05/qt/lib/libQtMultimediad4.a"
+	${SDL_LIBRARY} ${SDLMIXER_LIBRARY}
+)
