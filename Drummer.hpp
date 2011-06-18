@@ -28,6 +28,9 @@
 
 #include <QtCore/QObject>
 #include <QtCore/QHash>
+#include <Phonon/AudioOutput>
+#include <Phonon/MediaObject>
+#include <Phonon/MediaSource>
 
 namespace poumtchak {
 
@@ -45,6 +48,12 @@ public slots:
 private:
 	void loadSamples();
 	void loadSample(QString sampleName);
+
+
+private:
+        QHash<QString,Phonon::MediaObject*> _medias;
+        QHash<QString,Phonon::MediaSource*> _samples;
+
 
 };
 
