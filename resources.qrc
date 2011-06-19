@@ -1,7 +1,12 @@
 <RCC>
     <qresource prefix="/">
-        <file>main.qml</file>
         <file>Pad.qml</file>
         <file>ExitButton.qml</file>
+        <file>Loop.qml</file>
+        <file>Slider.qml</file>
+        <file>MainWindow.qml</file>
+        <file>Sound.qml</file>
+        <file>screen.qml</file>
+        <file>arrow.png</file>
     </qresource>
 </RCC>

@@ -4,7 +4,6 @@ Rectangle {
     id: pad
 
     property string label
-    property color onHoverColor: "lightsteelblue"
     property color borderColor: "transparent"
     property color buttonColor: "lightblue"
     property real labelSize: 14
@@ -12,7 +11,7 @@ Rectangle {
     radius: 10
     smooth: true
     border { width: 2; color: borderColor }
-    width: (pad_grid.width / 4) - 10
+    width: (((mainwindow.width / 6) - 20) > (mainwindow.height / 4)) ? (mainwindow.height / 4) : ((mainwindow.width / 6) - 20)
     height: pad.width
 
     Text {
@@ -29,8 +28,6 @@ Rectangle {
         id: buttonMouseArea
         anchors.fill: parent
         hoverEnabled: true
-        onEntered: parent.border.color = onHoverColor
-        onExited:  parent.border.color = borderColor
         onClicked: drummer.play(label)
     }
 

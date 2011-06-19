@@ -4,27 +4,28 @@
 #
 #-------------------------------------------------
 
-QT       += core gui declarative phonon
+QT       += core gui declarative
 
 TARGET = untitled
 TEMPLATE = app
 target.path=/usr/local/bin
 INSTALLS=target
 
-
 SOURCES += main.cpp \
     Drummer.cpp
 
 HEADERS  += \
     Drummer.hpp
-unix {
-    LIBS += -lpthread
-}
 
 OTHER_FILES += \
     Pad.qml \
-    main.qml \
-    ExitButton.qml
+    ExitButton.qml \
+    Loop.qml \
+    Slider.qml \
+    screen.qml \
+    Sound.qml \
+    MainWindow.qml \
+    arrow.png
 
 RESOURCES += \
     resources.qrc

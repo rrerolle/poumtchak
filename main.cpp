@@ -27,11 +27,9 @@ int main(int argc, char *argv[])
     view->rootContext()->setContextProperty("screenWidth", 400);
     view->rootContext()->setContextProperty("screenHeight", 100);
     view->setResizeMode(QDeclarativeView::SizeRootObjectToView);
-    view->setSource(QUrl("qrc:/main.qml"));
+    view->setSource(QUrl("qrc:/screen.qml"));
 
     view->showFullScreen();
-
-    printf("width %d, height %d\n", view->width(), view->height());
 
     printf("Showtime !\n");
     return app.exec();
