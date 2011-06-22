@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 
 from PySide import QtCore, QtGui, QtDeclarative
-from PySide.phonon import Phonon
+import swmixer
+
 
 class Drummer(QtCore.QObject):
     def __init__(self):
@@ -13,20 +14,25 @@ class Drummer(QtCore.QObject):
         self.load_samples()
 
     def load_samples(self):
-        for name in ['kick', 'hihat', 'snare', 'crash']:
-            self.medias[name] = Phonon.MediaObject(self)
-            self.samples[name] = Phonon.MediaSource("samples/%s.wav" % name)
-            self.outputs[name] = Phonon.AudioOutput(Phonon.MusicCategory, self)
-            Phonon.createPath(self.medias[name], self.outputs[name])
+        swmixer.init(samplerate=44100, chunksize=128, stereo=True)
+        for name in ['kick_16', 'hihat_16', 'snare_16', 'crash_16']:
+            self.medias[name] = swmixer.Sound("samples/%s.wav" % name)
+        swmixer.start()
+        timer = QtCore.QTimer(self)
+        self.connect(timer, QtCore.SIGNAL("tick()"), self.tick)
+        timer.start(10)
 
     @QtCore.Slot(str)
     def play(self, name):
-        self.medias[name].setCurrentSource(self.samples[name])
         self.medias[name].play()
 
     @QtCore.Slot()
     def exit(self):
         QtGui.QApplication.quit()
+
+    @QtCore.Slot()
+    def tick(self):
+        swmixer.tick()
 
 if __name__ == '__main__':
     import sys
@@ -41,12 +47,13 @@ if __name__ == '__main__':
 
     context = view.rootContext()
     context.setContextProperty("drummer", drummer)
-    context.setContextProperty("screenWidth", 400);
-    context.setContextProperty("screenHeight", 100);
+    context.setContextProperty("screenWidth", 800);
+    context.setContextProperty("screenHeight", 600);
 
     view.setSource(QtCore.QUrl('main.qml'))
     view.setResizeMode(QtDeclarative.QDeclarativeView.SizeRootObjectToView)
-    view.showFullScreen()
+#    view.showFullScreen()
+    view.show()
 
     sys.exit(app.exec_())
 

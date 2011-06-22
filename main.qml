@@ -14,38 +14,38 @@ Rectangle {
             spacing: 10
             Pad {
                 id: pad1x1
-                label: "kick"
+                label: "kick_16"
             }
             Pad {
                 id: pad1x2
-                label: "hihat"
+                label: "hihat_16"
             }
             Pad {
                 id: pad1x3
-                label: "snare"
+                label: "snare_16"
             }
             Pad {
                 id: pad1x4
-                label: "crash"
+                label: "crash_16"
             }
         }
         Row {
             spacing: 10
             Pad {
                 id: pad2x1
-                label: "kick"
+                label: "kick_16"
             }
             Pad {
                 id: pad2x2
-                label: "hihat"
+                label: "hihat_16"
             }
             Pad {
                 id: pad2x3
-                label: "snare"
+                label: "snare_16"
             }
             Pad {
                 id: pad2x4
-                label: "crash"
+                label: "crash_16"
             }
         }
     }
