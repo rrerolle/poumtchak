@@ -49,12 +49,23 @@ void Drummer::loadSamples()
 
 void Drummer::loadSample(QString sampleId)
 {
+    // Create media
+    Phonon::MediaObject* media = new Phonon::MediaObject(this);
+    _medias.insert(sampleId, media);
 
+    // Create sample
+    Phonon::MediaSource* sample = new Phonon::MediaSource(QString("%1/samples/%2.wav").arg(qApp->applicationDirPath()).arg(sampleId));
+    _samples.insert(sampleId, sample);
+
+    // Associate to a sink
+    Phonon::createPath(media, new Phonon::AudioOutput(Phonon::MusicCategory, this));
 }
 
 void Drummer::play(QString sampleId)
 {
-
+    Phonon::MediaObject* media = _medias.value(sampleId);
+    media->setCurrentSource(*(_samples.value(sampleId)));
+    media->play();
 }
 
 void Drummer::exit()

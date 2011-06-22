@@ -44,7 +44,6 @@ Rectangle {
              else if (loop.state == "PUTTING_OFF"){
                  loop.state = "OFF"
              }
-             drummer.play(label)
         }
     }
 

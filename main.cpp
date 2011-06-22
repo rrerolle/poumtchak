@@ -24,8 +24,8 @@ int main(int argc, char *argv[])
 
     // Register our object with the context...
     view->rootContext()->setContextProperty("drummer", &drummer);
-    view->rootContext()->setContextProperty("screenWidth", 400);
-    view->rootContext()->setContextProperty("screenHeight", 100);
+    view->rootContext()->setContextProperty("screenWidth", 1067);
+    view->rootContext()->setContextProperty("screenHeight", 600);
     view->setResizeMode(QDeclarativeView::SizeRootObjectToView);
     view->setSource(QUrl("qrc:/screen.qml"));
 
