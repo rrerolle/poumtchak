@@ -41,12 +41,13 @@ if __name__ == '__main__':
 
     context = view.rootContext()
     context.setContextProperty("drummer", drummer)
-    context.setContextProperty("screenWidth", 400);
-    context.setContextProperty("screenHeight", 100);
+    context.setContextProperty("screenWidth", 800);
+    context.setContextProperty("screenHeight", 600);
 
     view.setSource(QtCore.QUrl('main.qml'))
     view.setResizeMode(QtDeclarative.QDeclarativeView.SizeRootObjectToView)
-    view.showFullScreen()
+#    view.showFullScreen()
+    view.show()
 
     sys.exit(app.exec_())
 
