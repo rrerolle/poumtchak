@@ -29,7 +29,7 @@
 #include <QtCore/QBuffer>
 #include <QtCore/QFile>
 
-#include <QtMultimedia/QAudioOutput>
+#include <QAudioOutput>
 
 #include <SDL_mixer.h>
 
