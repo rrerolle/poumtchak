@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/Pad.qml</file>
+        <file>qml/ExitButton.qml</file>
+        <file>qml/Loop.qml</file>
+        <file>qml/Slider.qml</file>
+        <file>qml/MainWindow.qml</file>
+        <file>qml/Sound.qml</file>
+        <file>qml/screen.qml</file>
+        <file>images/arrow.png</file>
+    </qresource>
+</RCC>

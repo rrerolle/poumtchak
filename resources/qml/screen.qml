@@ -34,7 +34,7 @@ Rectangle{
 
           Image{
               id: arrowIcon
-              source: "qrc:/arrow.png"
+              source: "qrc:/images/arrow.png"
               anchors.horizontalCenter: parent.horizontalCenter
           }
 

@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
     view->rootContext()->setContextProperty("screenWidth", 800);
     view->rootContext()->setContextProperty("screenHeight", 600);
     view->setResizeMode(QDeclarativeView::SizeRootObjectToView);
-    view->setSource(QUrl("qrc:/screen.qml"));
+    view->setSource(QUrl("qrc:/qml/screen.qml"));
 
 //    view->showFullScreen();
     view->show();

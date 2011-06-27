@@ -24,7 +24,7 @@ int Sample::load()
     unsigned int nread;
 
 
-    sndfile = sf_open(filename, SFM_READ, &fileinfo);
+    sndfile = sf_open(filename.toAscii().constData(), SFM_READ, &fileinfo);
 
     if (!sndfile)
         return -1;
