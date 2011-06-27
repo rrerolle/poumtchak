@@ -4,7 +4,6 @@ Rectangle {
     id: exitbutton
 
     property string label
-    property color onHoverColor: "lightsteelblue"
     property color borderColor: "transparent"
     property color buttonColor: "lightblue"
     property real labelSize: 10
@@ -12,7 +11,7 @@ Rectangle {
     radius: 10
     smooth: true
     border { width: 2; color: borderColor }
-    width: parent.width / 5
+    width: parent.width / 6
     height: parent.height / 15
 
     Text {
@@ -25,13 +24,11 @@ Rectangle {
 
     signal buttonClick()
 
-    MouseArea { 
+    MouseArea {
         id: buttonMouseArea
         anchors.fill: parent
         hoverEnabled: true
-        onEntered: parent.border.color = onHoverColor
-        onExited:  parent.border.color = borderColor
-        onClicked: drummer.exit()
+        onClicked: mixer.exit()
     }
 
     gradient: Gradient {
