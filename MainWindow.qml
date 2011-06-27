@@ -29,19 +29,19 @@ Rectangle {
             spacing: 20
             Loop {
                 id: loop1x1
-                label: "kick"
+                label: "bass"
             }
             Loop {
                 id: loop1x2
-                label: "hihat"
+                label: "drums"
             }
             Loop {
                 id: loop1x3
-                label: "snare"
+                label: "guitar1"
             }
             Loop {
                 id: loop1x4
-                label: "crash"
+                label: "guitar2"
             }
         }
     }

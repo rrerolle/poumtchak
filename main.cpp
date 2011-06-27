@@ -6,7 +6,7 @@
 #include <QtDeclarative/QDeclarativeContext>
 #include <QtDeclarative/QDeclarativeView>
 
-#include "Drummer.hpp"
+#include "Mixer.hpp"
 using namespace poumtchak;
 
 int main(int argc, char *argv[])
@@ -18,18 +18,21 @@ int main(int argc, char *argv[])
 
     QDeclarativeView* view = new QDeclarativeView;
 
-    printf("Loading samples...");
-    Drummer drummer;
+    printf("Loading samples...\n");
+    Mixer mixer;
+    mixer.initialize();
+    mixer.load_samples();
+    mixer.start();
     printf("Done !\n");
 
-    // Register our object with the context...
-    view->rootContext()->setContextProperty("drummer", &drummer);
-    view->rootContext()->setContextProperty("screenWidth", 400);
-    view->rootContext()->setContextProperty("screenHeight", 100);
+    view->rootContext()->setContextProperty("mixer", &mixer);
+    view->rootContext()->setContextProperty("screenWidth", 800);
+    view->rootContext()->setContextProperty("screenHeight", 600);
     view->setResizeMode(QDeclarativeView::SizeRootObjectToView);
     view->setSource(QUrl("qrc:/screen.qml"));
 
-    view->showFullScreen();
+//    view->showFullScreen();
+    view->show();
 
     printf("Showtime !\n");
     return app.exec();

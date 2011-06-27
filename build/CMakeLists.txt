@@ -53,29 +53,24 @@ endif()
     arrow.png
   )
 # -- Qt 4.7.0 minimum --
-FIND_PACKAGE ( Qt4 4.7.0 COMPONENTS QtCore QtGui QtDeclarative Phonon REQUIRED )
+FIND_PACKAGE ( Qt4 4.7.0 COMPONENTS QtCore QtGui QtDeclarative REQUIRED )
 SET ( QT_USE_QTCORE ON )
 SET ( QT_USE_QTGUI ON )
 SET ( QT_USE_QTDECLARATIVE ON )
-SET ( QT_USE_PHONON ON )
 INCLUDE ( ${QT_USE_FILE} )
 
-FIND_PACKAGE ( SDL 1.2 )
-FIND_PACKAGE ( SDL_mixer 1.2 )
-
-
-
-
-INCLUDE_DIRECTORIES( ${SDL_INCLUDE_DIR} ${SDLMIXER_INCLUDE_DIR} )
+FIND_PACKAGE ( sndfile )
+FIND_PACKAGE ( portaudio )
 
 ### ------------- MOC --------------
-QT4_WRAP_CPP ( MOC_SRCS ../Drummer.hpp )
+QT4_WRAP_CPP ( MOC_SRCS ../Sample.hpp ../Mixer.hpp )
 
-ADD_EXECUTABLE ( PoumTchak ${MOC_SRCS} ../main.cpp ../Drummer.cpp ${SAMPLE_RC_SRCS})
+ADD_EXECUTABLE ( PoumTchak ${MOC_SRCS} ../main.cpp ../Sample.cpp ../Mixer.cpp ${SAMPLE_RC_SRCS})
 
 TARGET_LINK_LIBRARIES ( 
 	PoumTchak
 	${QT_LIBRARIES}
-	${SDL_LIBRARY} ${SDLMIXER_LIBRARY}
     ${QT_MOBILITY_MULTIMEDIAKIT_LIBRARY}
+    ${PORTAUDIO_LIBRARIES}
+    ${SNDFILE_LIBRARY}
 )

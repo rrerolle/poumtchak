@@ -28,7 +28,7 @@ Rectangle {
         id: buttonMouseArea
         anchors.fill: parent
         hoverEnabled: true
-        onClicked: drummer.play(label)
+        onPressed: mixer.play(label)
     }
 
     color: buttonMouseArea.pressed ? Qt.darker(buttonColor, 1.5) : buttonColor

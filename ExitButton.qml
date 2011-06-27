@@ -28,7 +28,7 @@ Rectangle {
         id: buttonMouseArea
         anchors.fill: parent
         hoverEnabled: true
-        onClicked: drummer.exit()
+        onClicked: mixer.exit()
     }
 
     gradient: Gradient {
